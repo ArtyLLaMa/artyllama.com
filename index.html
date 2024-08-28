@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArtyLLaMA - Empowering Inclusive AI Creativity</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #ffffff;
+            height: 100%;
+            overflow-x: hidden;
+            background-color: #0a0a0a;
+        }
+        .gradient-background {
+            background-image: url('wallpaper.png');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .gradient-background::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(45deg, rgba(255,154,158,0.7), rgba(250,208,196,0.7), rgba(255,236,210,0.7), rgba(252,182,159,0.7));
+            animation: gradient 15s ease infinite;
+        }
+        @keyframes gradient {
+            0% {background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100% {background-position: 0% 50%;}
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-left: 20px;
+            transition: opacity 0.3s;
+        }
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+        .hero-content {
+            max-width: 800px;
+        }
+        .dynamic-title {
+            font-size: 72px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s forwards;
+        }
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .changing-word {
+            display: inline-block;
+            min-width: 300px;
+            position: relative;
+            text-align: left;
+        }
+        .changing-word::after {
+            content: '|';
+            position: absolute;
+            right: -8px;
+            top: 0;
+            animation: blink 0.7s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        .subtitle {
+            font-size: 24px;
+            margin-bottom: 40px;
+            opacity: 0;
+            animation: fadeIn 1s 0.5s forwards;
+        }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: #ffffff;
+            color: #000000;
+            padding: 12px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            opacity: 0;
+            animation: fadeIn 1s 1s forwards;
+        }
+        .cta-button:hover {
+            background-color: #f0f0f0;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .app-showcase {
+            padding: 80px 0;
+            background: #121212;
+        }
+        .app-screenshot {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s 1.5s forwards;
+        }
+        .features {
+            padding: 80px 0;
+            background-color: #121212;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .feature {
+            background-color: #1a1a1a;
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .feature:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        .feature h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        .feature p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        footer {
+            background-color: #0a0a0a;
+            color: #a0aec0;
+            padding: 60px 0;
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .footer-section {
+            flex-basis: calc(25% - 20px);
+            margin-bottom: 20px;
+        }
+        .footer-section h4 {
+            color: #ffffff;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        .footer-section ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        .footer-section ul li a {
+            color: #a0aec0;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-section ul li a:hover {
+            color: #ffffff;
+        }
+        .footer-bottom {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(160, 174, 192, 0.2);
+        }
+        @media (max-width: 768px) {
+            .feature-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 480px) {
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">🦙 ArtyLLaMA</div>
+        <nav class="nav-links">
+            <a href="#features">Features</a>
+            <a href="#showcase">Showcase</a>
+            <a href="https://github.com/kroonen/ArtyLLaMA" target="_blank">GitHub</a>
+        </nav>
+    </header>
+
+    <div class="gradient-background">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="dynamic-title">
+                    ArtyLLaMA unleashes
+                    <span class="changing-word" id="changing-word"></span>
+                </h1>
+                <p class="subtitle">Empowering creativity with Open Source AI, right at your fingertips.</p>
+                <a href="#" class="cta-button">Get Started</a>
+            </div>
+        </div>
+    </div>
+
+    <section class="app-showcase" id="showcase">
+        <div class="container">
+            <img src="screenshot.webp" alt="ArtyLLaMA Interface" class="app-screenshot">
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="feature-grid">
+            <div class="feature">
+                <div class="feature-icon">🧠</div>
+                <h3>LLaMA Integration</h3>
+                <p>Seamless support for LLaMa.cpp via the llama-cpp-python package</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🎨</div>
+                <h3>Dynamic Artifacts</h3>
+                <p>Create and display content artifacts during chat interactions</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🖥️</div>
+                <h3>Real-time HTML Preview</h3>
+                <p>Instantly visualize HTML artifacts</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🔄</div>
+                <h3>Multi-Model Support</h3>
+                <p>Choose from multiple language models in the `/models` folder</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">📱</div>
+                <h3>Responsive Design</h3>
+                <p>Mobile-friendly interface built with Tailwind CSS</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🌙</div>
+                <h3>Dark Mode</h3>
+                <p>Easy on the eyes with a default dark theme</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🚀</div>
+                <h3>Local Inference</h3>
+                <p>Run models locally for privacy and customization</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🌈</div>
+                <h3>Inclusive AI</h3>
+                <p>Fostering diversity in AI development</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🛠️</div>
+                <h3>Customizable System Messages</h3>
+                <p>Set the AI's context and behavior</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>About ArtyLLaMA</h4>
+                    <p>Empowering creativity with Open Source AI, fostering an inclusive environment for AI development.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#showcase">Showcase</a></li>
+                        <li><a href="https://github.com/kroonen/ArtyLLaMA" target="_blank">GitHub</a></li>
+                        <li><a href="#">Documentation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Community</h4>
+                    <ul>
+                        <li><a href="#">Code of Conduct</a></li>
+                        <li><a href="#">Contributing</a></li>
+                        <li><a href="#">Discord</a></li>
+                        <li><a href="#">Twitter</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:rob@artyllama.com">rob@artyllama.com</a></li>
+                        <li><a href="https://x.com/rob_x_ai" target="_blank">@rob_x_ai</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 ArtyLLaMA. All rights reserved. Made with ❤️ by the ArtyLLaMA community.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const words = ['creativity', 'innovation', 'AI potential', 'imagination'];
+        let currentIndex = 0;
+        const changingWord = document.getElementById('changing-word');
+
+        async function typeWord(word) {
+            for (let i = 0; i <= word.length; i++) {
+                changingWord.textContent = word.slice(0, i);
+                await new Promise(resolve => setTimeout(resolve, 100));
+            }
+            await new Promise(resolve => setTimeout(resolve, 1000)); // Pause at the end of the word
+        }
+
+        async function deleteWord(word) {
+            for (let i = word.length; i >= 0; i--) {
+                changingWord.textContent = word.slice(0, i);
+                await new Promise(resolve => setTimeout(resolve, 50));
+            }
+        }
+
+        async function changeWord() {
+            while (true) {
+                await typeWord(words[currentIndex]);
+                await deleteWord(words[currentIndex]);
+                currentIndex = (currentIndex + 1) % words.length;
+            }
+        }
+
+        changeWord();
+    </script>
+</body>
+</html>
