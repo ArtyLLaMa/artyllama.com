@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ArtyLLaMA - Unleash Your AI's Creative Potential</title>
+    <title>ArtyLLaMa - AI-Powered Artifacts for Everyone</title>
     <style>
         body, html {
             margin: 0;
@@ -16,29 +16,65 @@
             background-color: #0a0a0a;
         }
         .gradient-background {
-            background-image: url('wallpaper.png');
-            background-size: cover;
-            background-position: center;
+            background-size: 400% 400%;
             height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
+            overflow: hidden;
         }
+
         .gradient-background::before {
             content: '';
             position: absolute;
+            top: -50%;
+            left: -50%;
+            right: -50%;
+            bottom: -50%;
+            background: 
+                linear-gradient(45deg, 
+                    rgba(65, 88, 208, 0.7) 0%, 
+                    rgba(200, 80, 192, 0.7) 25%, 
+                    rgba(255, 204, 112, 0.7) 50%, 
+                    rgba(80, 200, 120, 0.7) 75%, 
+                    rgba(65, 88, 208, 0.7) 100%);
+            animation: gradientShift 15s ease infinite, rotate 20s linear infinite;
+            z-index: -1;
+        }
+
+        .gradient-background::after {
+            content: '';
+            position: absolute;
             top: 0;
+            left: 0;
             right: 0;
             bottom: 0;
-            left: 0;
-            background: linear-gradient(45deg, rgba(255,154,158,0.7), rgba(250,208,196,0.7), rgba(255,236,210,0.7), rgba(252,182,159,0.7));
-            animation: gradient 15s ease infinite;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 25%),
+                radial-gradient(circle at 80% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 20%);
+            z-index: -1;
         }
-        @keyframes gradient {
-            0% {background-position: 0% 50%;}
-            50% {background-position: 100% 50%;}
-            100% {background-position: 0% 50%;}
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .dynamic-title {
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 5px rgba(255, 255, 255, 0.5); }
+            to { text-shadow: 0 0 20px rgba(255, 255, 255, 0.8); }
         }
         .container {
             max-width: 1200px;
@@ -248,67 +284,66 @@
         <div class="container">
             <div class="hero-content">
                 <h1 class="dynamic-title">
-                    ArtyLLaMA creates
-                    <span class="changing-word" id="changing-word"></span>
+                    ArtyLLaMa creates <span class="changing-word" id="changing-word"></span>
                 </h1>
-                <p class="subtitle">Unlock the full potential of AI-powered creativity with dynamic Artifacts</p>
-                <a href="https://github.com/kroonen/ArtyLLaMA" class="cta-button">Start Creating</a>
+                <p class="subtitle">Open-source large language models for interactive AI chatbot experiences</p>
+                <a href="https://github.com/kroonen/artyllama" class="cta-button">Get Started</a>
             </div>
         </div>
     </div>
 
     <section class="app-showcase" id="showcase">
         <div class="container">
-            <img src="screenshot.png" alt="ArtyLLaMA Interface" class="app-screenshot">
+            <img src="screenshot.png" alt="ArtyLLaMa Interface" class="app-screenshot">
         </div>
     </section>
 
     <section class="features" id="features">
         <div class="feature-grid">
             <div class="feature">
-                <div class="feature-icon">🎨</div>
-                <h3>Dynamic Artifacts</h3>
-                <p>Create and visualize AI-generated content in real-time, from code to complex designs</p>
+                <div class="feature-icon">🤖</div>
+                <h3>Multiple AI Providers</h3>
+                <p>Integrate with Ollama, OpenAI, and Anthropic for versatile AI experiences</p>
             </div>
             <div class="feature">
-                <div class="feature-icon">🔄</div>
-                <h3>Multi-Model Support</h3>
-                <p>Seamlessly switch between various Ollama AI models to suit your creative needs</p>
+                <div class="feature-icon">💬</div>
+                <h3>Real-time Chat Interface</h3>
+                <p>Dynamic UI with real-time message updates and interactive conversations</p>
             </div>
             <div class="feature">
                 <div class="feature-icon">🖥️</div>
-                <h3>Real-time HTML Preview</h3>
-                <p>Instantly visualize and iterate on web designs with toggleable HTML preview</p>
+                <h3>Code Highlighting</h3>
+                <p>Syntax highlighting for various programming languages</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🎨</div>
+                <h3>HTML Preview</h3>
+                <p>Interactive canvas and script support for immediate visualization</p>
             </div>
             <div class="feature">
                 <div class="feature-icon">📱</div>
                 <h3>Responsive Design</h3>
-                <p>Create on any device with our mobile-friendly Tailwind CSS interface</p>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">🌙</div>
-                <h3>Dark Mode</h3>
-                <p>Comfortable creation environment with our sleek dark theme</p>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">🚀</div>
-                <h3>Local Inference</h3>
-                <p>Harness the power of AI locally using Ollama for enhanced privacy and customization</p>
+                <p>Expandable preview panel for seamless viewing on any device</p>
             </div>
             <div class="feature">
                 <div class="feature-icon">🖼️</div>
-                <h3>Expandable Artifact Panel</h3>
-                <p>View and interact with artifacts in a larger, full-screen mode for detailed exploration</p>
+                <h3>Artifact Rendering</h3>
+                <p>Support for various content types including HTML, SVG, and code snippets</p>
             </div>
             <div class="feature">
-                <div class="feature-icon">🔗</div>
-                <h3>Remote Content Support</h3>
-                <p>Display and interact with remote content directly within the artifact panel</p>
+                <div class="feature-icon">🔒</div>
+                <h3>Error Handling</h3>
+                <p>Robust error management and loading indicators for smooth user experience</p>
             </div>
             <div class="feature">
-                <div class="feature-icon">🛠️</div>
-                <h3>Customizable AI Behavior</h3>
-                <p>Fine-tune your AI assistant's context and responses with customizable system messages</p>
+                <div class="feature-icon">🚀</div>
+                <h3>Server-side Streaming</h3>
+                <p>Efficient streaming of AI responses for real-time interaction</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">⚙️</div>
+                <h3>Customizable System Messages</h3>
+                <p>Tailor the AI's behavior with customizable system prompts</p>
             </div>
         </div>
     </section>
@@ -317,67 +352,126 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h4>About ArtyLLaMA</h4>
-                    <p>Empowering creators with AI-driven tools, ArtyLLaMA is at the forefront of open-source creative technology.</p>
+                    <h4>About ArtyLLaMa</h4>
+                    <p>An open-source project bringing AI-powered artifacts to everyone through a React-based chat interface.</p>
                 </div>
                 <div class="footer-section">
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="#features">Features</a></li>
                         <li><a href="#showcase">Showcase</a></li>
-                        <li><a href="https://github.com/kroonen/ArtyLLaMA" target="_blank">GitHub</a></li>
-                        <li><a href="https://huggingface.co/artyllama" target="_blank">HuggingFace 🤗</a></li>
+                        <li><a href="https://github.com/kroonen/artyllama" target="_blank">GitHub</a></li>
+                        <li><a href="https://github.com/kroonen/artyllama/blob/main/CONTRIBUTING.md" target="_blank">Contribute</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h4>Community</h4>
                     <ul>
-                        <li><a href="https://github.com/kroonen/ArtyLLaMA/blob/main/CODE_OF_CONDUCT.md">Code of Conduct</a></li>
+                        <li><a href="https://github.com/kroonen/artyllama/graphs/contributors" target="_blank">Contributors</a></li>
+                        <li><a href="https://github.com/kroonen/artyllama/stargazers" target="_blank">Star on GitHub</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h4>Contact</h4>
+                    <h4>Support</h4>
                     <ul>
-                        <li><a href="mailto:rob@artyllama.com">rob@artyllama.com</a></li>
-                        <li><a href="https://x.com/rob_x_ai" target="_blank">@rob_x_ai</a></li>
+                        <li><a href="https://github.com/kroonen/artyllama/issues" target="_blank">Report Issues</a></li>
+                        <li><a href="https://github.com/kroonen/artyllama/blob/main/TROUBLESHOOTING.md" target="_blank">Troubleshooting Guide</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 ArtyLLaMA. Empowering AI Creativity in the Open Source Community</p>
+                <p>&copy; 2024 ArtyLLaMa. Open-source AI-powered artifacts for everyone.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        const words = ['masterpieces', 'innovations', 'digital art', 'the future'];
-        let currentIndex = 0;
+        const categories = [
+            {
+                name: "Visual Arts",
+                items: ["digital paintings", "3D sculptures", "generative art", "interactive installations"]
+            },
+            {
+                name: "Code Creations",
+                items: ["elegant algorithms", "AI-assisted refactoring", "code poetry", "self-modifying programs"]
+            },
+            {
+                name: "Game Development",
+                items: ["one-shot game prototypes", "procedural worlds", "AI-driven NPCs", "dynamic storylines"]
+            },
+            {
+                name: "Scientific Simulations",
+                items: ["3D physics engines", "quantum visualizations", "cellular automata", "neural network models"]
+            },
+            {
+                name: "Web Experiences",
+                items: ["immersive web apps", "AR web interfaces", "data-driven dashboards", "AI chatbot assistants"]
+            },
+            {
+                name: "Audio Engineering",
+                items: ["AI-composed melodies", "adaptive soundscapes", "voice synthesis", "audio visualization"]
+            },
+            {
+                name: "Design Innovation",
+                items: ["responsive UX prototypes", "AI-generated logos", "mood-adaptive interfaces", "biomimetic designs"]
+            }
+        ];
+    
         const changingWord = document.getElementById('changing-word');
-
-        async function typeWord(word) {
-            for (let i = 0; i <= word.length; i++) {
-                changingWord.textContent = word.slice(0, i);
-                await new Promise(resolve => setTimeout(resolve, 100));
+        let currentCategoryIndex = 0;
+        let currentItemIndex = 0;
+    
+        async function typePhrase(phrase) {
+            changingWord.textContent = '';
+            for (let char of phrase) {
+                changingWord.textContent += char;
+                changingWord.style.color = `hsl(${Math.random() * 360}, 80%, 60%)`;
+                await new Promise(resolve => setTimeout(resolve, 30 + Math.random() * 50));
             }
             await new Promise(resolve => setTimeout(resolve, 1000));
         }
-
-        async function deleteWord(word) {
-            for (let i = word.length; i >= 0; i--) {
-                changingWord.textContent = word.slice(0, i);
+    
+        async function erasePhrase() {
+            while (changingWord.textContent.length > 0) {
+                changingWord.textContent = changingWord.textContent.slice(0, -1);
+                await new Promise(resolve => setTimeout(resolve, 20));
+            }
+        }
+    
+        async function glitchEffect() {
+            const originalText = changingWord.textContent;
+            const glitchChars = '!@#$%^&*<>[]{}';
+            for (let i = 0; i < 5; i++) {
+                changingWord.textContent = originalText.split('').map(char => 
+                    Math.random() > 0.7 ? glitchChars[Math.floor(Math.random() * glitchChars.length)] : char
+                ).join('');
                 await new Promise(resolve => setTimeout(resolve, 50));
             }
+            changingWord.textContent = originalText;
         }
-
-        async function changeWord() {
+    
+        async function displayCategory(category) {
+            await typePhrase(category.name);
+            await new Promise(resolve => setTimeout(resolve, 500));
+            await erasePhrase();
+        }
+    
+        async function cycleWords() {
             while (true) {
-                await typeWord(words[currentIndex]);
-                await deleteWord(words[currentIndex]);
-                currentIndex = (currentIndex + 1) % words.length;
+                const category = categories[currentCategoryIndex];
+                await displayCategory(category);
+                
+                for (let item of category.items) {
+                    await typePhrase(item);
+                    if (Math.random() > 0.7) await glitchEffect();
+                    await erasePhrase();
+                }
+    
+                currentCategoryIndex = (currentCategoryIndex + 1) % categories.length;
             }
         }
-
-        changeWord();
-    </script>
+    
+        cycleWords();
+    </script>    
 </body>
 </html>
