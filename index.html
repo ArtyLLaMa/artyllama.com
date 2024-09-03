@@ -5,85 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ArtyLLaMa - AI-Powered Artifacts for Everyone</title>
     <style>
+        :root {
+            --primary-color: #4158D0;
+            --secondary-color: #C850C0;
+            --accent-color: #FFCC70;
+            --text-color: #ffffff;
+            --background-color: #0a0a0a;
+        }
+
         body, html {
             margin: 0;
             padding: 0;
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            color: #ffffff;
-            height: 100%;
+            color: var(--text-color);
+            background-color: var(--background-color);
             overflow-x: hidden;
-            background-color: #0a0a0a;
-        }
-        .gradient-background {
-            background-size: 400% 400%;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
         }
 
-        .gradient-background::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            right: -50%;
-            bottom: -50%;
-            background: 
-                linear-gradient(45deg, 
-                    rgba(65, 88, 208, 0.7) 0%, 
-                    rgba(200, 80, 192, 0.7) 25%, 
-                    rgba(255, 204, 112, 0.7) 50%, 
-                    rgba(80, 200, 120, 0.7) 75%, 
-                    rgba(65, 88, 208, 0.7) 100%);
-            animation: gradientShift 15s ease infinite, rotate 20s linear infinite;
-            z-index: -1;
-        }
-
-        .gradient-background::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 25%),
-                radial-gradient(circle at 80% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 20%);
-            z-index: -1;
-        }
-
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .dynamic-title {
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-            animation: glow 2s ease-in-out infinite alternate;
-        }
-
-        @keyframes glow {
-            from { text-shadow: 0 0 5px rgba(255, 255, 255, 0.5); }
-            to { text-shadow: 0 0 20px rgba(255, 255, 255, 0.8); }
-        }
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
-            text-align: center;
-            position: relative;
-            z-index: 1;
         }
+
         header {
             position: fixed;
             top: 0;
@@ -97,42 +42,62 @@
             backdrop-filter: blur(10px);
             z-index: 1000;
         }
+
         .logo {
             font-size: 24px;
             font-weight: bold;
         }
-        .nav-links a {
-            color: #ffffff;
+
+        nav a {
+            color: var(--text-color);
             text-decoration: none;
             margin-left: 20px;
             transition: opacity 0.3s;
         }
-        .nav-links a:hover {
+
+        nav a:hover {
             opacity: 0.8;
         }
-        .hero-content {
-            max-width: 800px;
+
+        .gradient-background {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .hero-content {
+            text-align: center;
+        }
+
         .dynamic-title {
-            font-size: 72px;
+            font-size: 4rem;
             font-weight: bold;
             margin-bottom: 20px;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 1s forwards;
+            animation: glow 2s ease-in-out infinite alternate;
         }
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 5px rgba(255, 255, 255, 0.5); }
+            to { text-shadow: 0 0 20px rgba(255, 255, 255, 0.8); }
         }
+
         .changing-word {
             display: inline-block;
             min-width: 300px;
             position: relative;
             text-align: left;
         }
+
         .changing-word::after {
             content: '|';
             position: absolute;
@@ -140,61 +105,49 @@
             top: 0;
             animation: blink 0.7s infinite;
         }
+
         @keyframes blink {
             0%, 100% { opacity: 1; }
             50% { opacity: 0; }
         }
-        .subtitle {
-            font-size: 24px;
-            margin-bottom: 40px;
-            opacity: 0;
-            animation: fadeIn 1s 0.5s forwards;
-        }
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-            }
-        }
+
         .cta-button {
             display: inline-block;
-            background-color: #ffffff;
-            color: #000000;
+            background-color: var(--accent-color);
+            color: var(--background-color);
             padding: 12px 24px;
             border-radius: 30px;
             text-decoration: none;
             font-weight: bold;
             transition: all 0.3s;
-            opacity: 0;
-            animation: fadeIn 1s 1s forwards;
         }
+
         .cta-button:hover {
-            background-color: #f0f0f0;
+            background-color: var(--secondary-color);
             transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
-        .app-showcase {
+
+        .section {
             padding: 80px 0;
+        }
+
+        .app-showcase {
             background: #121212;
         }
+
         .app-screenshot {
             max-width: 100%;
             border-radius: 8px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 1s 1.5s forwards;
         }
-        .features {
-            padding: 80px 0;
-            background-color: #121212;
-        }
+
         .feature-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
         }
+
         .feature {
             background-color: #1a1a1a;
             border-radius: 8px;
@@ -202,70 +155,64 @@
             text-align: center;
             transition: transform 0.3s, box-shadow 0.3s;
         }
+
         .feature:hover {
             transform: translateY(-10px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
+
         .feature-icon {
             font-size: 48px;
             margin-bottom: 20px;
         }
-        .feature h3 {
-            font-size: 24px;
-            margin-bottom: 15px;
-        }
-        .feature p {
-            font-size: 16px;
-            line-height: 1.6;
-        }
+
         footer {
             background-color: #0a0a0a;
             color: #a0aec0;
             padding: 60px 0;
         }
+
         .footer-content {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
         }
-        .footer-section {
-            flex-basis: calc(25% - 20px);
-            margin-bottom: 20px;
-        }
+
         .footer-section h4 {
-            color: #ffffff;
+            color: var(--text-color);
             font-size: 18px;
             margin-bottom: 15px;
         }
+
         .footer-section ul {
             list-style-type: none;
             padding: 0;
         }
+
         .footer-section ul li {
             margin-bottom: 10px;
         }
+
         .footer-section ul li a {
             color: #a0aec0;
             text-decoration: none;
             transition: color 0.3s;
         }
+
         .footer-section ul li a:hover {
-            color: #ffffff;
+            color: var(--text-color);
         }
+
         .footer-bottom {
             text-align: center;
             margin-top: 40px;
             padding-top: 20px;
             border-top: 1px solid rgba(160, 174, 192, 0.2);
         }
+
         @media (max-width: 768px) {
-            .feature-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        @media (max-width: 480px) {
-            .feature-grid {
-                grid-template-columns: 1fr;
+            .dynamic-title {
+                font-size: 3rem;
             }
         }
     </style>
@@ -273,77 +220,79 @@
 <body>
     <header>
         <div class="logo">🦙 ArtyLLaMA</div>
-        <nav class="nav-links">
+        <nav>
             <a href="#features">Features</a>
             <a href="#showcase">Showcase</a>
-            <a href="https://github.com/kroonen/ArtyLLaMA" target="_blank">GitHub</a>
+            <a href="https://github.com/kroonen/ArtyLLaMA" target="_blank" rel="noopener noreferrer">GitHub</a>
         </nav>
     </header>
 
     <div class="gradient-background">
         <div class="container">
             <div class="hero-content">
-                <h1 class="dynamic-title">
-                    ArtyLLaMa creates <span class="changing-word" id="changing-word"></span>
+                <h1 id="artyllama-creates" class="dynamic-title">
+                    ArtyLLaMa creates <span id="changing-word" class="changing-word"></span>
                 </h1>
-                <p class="subtitle">Open-source large language models for interactive AI chatbot experiences</p>
+                <p>Open-source large language models for interactive AI chatbot experiences</p>
                 <a href="https://github.com/kroonen/artyllama" class="cta-button">Get Started</a>
             </div>
         </div>
     </div>
 
-    <section class="app-showcase" id="showcase">
+    <section id="showcase" class="section app-showcase">
         <div class="container">
             <img src="screenshot.png" alt="ArtyLLaMa Interface" class="app-screenshot">
         </div>
     </section>
 
-    <section class="features" id="features">
-        <div class="feature-grid">
-            <div class="feature">
-                <div class="feature-icon">🤖</div>
-                <h3>Multiple AI Providers</h3>
-                <p>Integrate with Ollama, OpenAI, and Anthropic for versatile AI experiences</p>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">💬</div>
-                <h3>Real-time Chat Interface</h3>
-                <p>Dynamic UI with real-time message updates and interactive conversations</p>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">🖥️</div>
-                <h3>Code Highlighting</h3>
-                <p>Syntax highlighting for various programming languages</p>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">🎨</div>
-                <h3>HTML Preview</h3>
-                <p>Interactive canvas and script support for immediate visualization</p>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">📱</div>
-                <h3>Responsive Design</h3>
-                <p>Expandable preview panel for seamless viewing on any device</p>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">🖼️</div>
-                <h3>Artifact Rendering</h3>
-                <p>Support for various content types including HTML, SVG, and code snippets</p>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">🔒</div>
-                <h3>Error Handling</h3>
-                <p>Robust error management and loading indicators for smooth user experience</p>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">🚀</div>
-                <h3>Server-side Streaming</h3>
-                <p>Efficient streaming of AI responses for real-time interaction</p>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">⚙️</div>
-                <h3>Customizable System Messages</h3>
-                <p>Tailor the AI's behavior with customizable system prompts</p>
+    <section id="features" class="section features">
+        <div class="container">
+            <div class="feature-grid">
+                <div class="feature">
+                    <div class="feature-icon">🤖</div>
+                    <h3>Multiple AI Providers</h3>
+                    <p>Integrate with Ollama, OpenAI, and Anthropic for versatile AI experiences</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">💬</div>
+                    <h3>Real-time Chat Interface</h3>
+                    <p>Dynamic UI with real-time message updates and interactive conversations</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🖥️</div>
+                    <h3>Code Highlighting</h3>
+                    <p>Syntax highlighting for various programming languages</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🎨</div>
+                    <h3>HTML Preview</h3>
+                    <p>Interactive canvas and script support for immediate visualization</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📱</div>
+                    <h3>Responsive Design</h3>
+                    <p>Expandable preview panel for seamless viewing on any device</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🖼️</div>
+                    <h3>Artifact Rendering</h3>
+                    <p>Support for various content types including HTML, SVG, and code snippets</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Error Handling</h3>
+                    <p>Robust error management and loading indicators for smooth user experience</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Server-side Streaming</h3>
+                    <p>Efficient streaming of AI responses for real-time interaction</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">⚙️</div>
+                    <h3>Customizable System Messages</h3>
+                    <p>Tailor the AI's behavior with customizable system prompts</p>
+                </div>
             </div>
         </div>
     </section>
@@ -360,22 +309,22 @@
                     <ul>
                         <li><a href="#features">Features</a></li>
                         <li><a href="#showcase">Showcase</a></li>
-                        <li><a href="https://github.com/kroonen/artyllama" target="_blank">GitHub</a></li>
-                        <li><a href="https://github.com/kroonen/artyllama/blob/main/CONTRIBUTING.md" target="_blank">Contribute</a></li>
+                        <li><a href="https://github.com/kroonen/artyllama" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                        <li><a href="https://github.com/kroonen/artyllama/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer">Contribute</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h4>Community</h4>
                     <ul>
-                        <li><a href="https://github.com/kroonen/artyllama/graphs/contributors" target="_blank">Contributors</a></li>
-                        <li><a href="https://github.com/kroonen/artyllama/stargazers" target="_blank">Star on GitHub</a></li>
+                        <li><a href="https://github.com/kroonen/artyllama/graphs/contributors" target="_blank" rel="noopener noreferrer">Contributors</a></li>
+                        <li><a href="https://github.com/kroonen/artyllama/stargazers" target="_blank" rel="noopener noreferrer">Star on GitHub</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h4>Support</h4>
                     <ul>
-                        <li><a href="https://github.com/kroonen/artyllama/issues" target="_blank">Report Issues</a></li>
-                        <li><a href="https://github.com/kroonen/artyllama/blob/main/TROUBLESHOOTING.md" target="_blank">Troubleshooting Guide</a></li>
+                        <li><a href="https://github.com/kroonen/artyllama/issues" target="_blank" rel="noopener noreferrer">Report Issues</a></li>
+                        <li><a href="https://github.com/kroonen/artyllama/blob/main/TROUBLESHOOTING.md" target="_blank" rel="noopener noreferrer">Troubleshooting Guide</a></li>
                     </ul>
                 </div>
             </div>
@@ -416,11 +365,11 @@
                 items: ["responsive UX prototypes", "AI-generated logos", "mood-adaptive interfaces", "biomimetic designs"]
             }
         ];
-    
+
         const changingWord = document.getElementById('changing-word');
         let currentCategoryIndex = 0;
         let currentItemIndex = 0;
-    
+
         async function typePhrase(phrase) {
             changingWord.textContent = '';
             for (let char of phrase) {
@@ -430,14 +379,14 @@
             }
             await new Promise(resolve => setTimeout(resolve, 1000));
         }
-    
+
         async function erasePhrase() {
             while (changingWord.textContent.length > 0) {
                 changingWord.textContent = changingWord.textContent.slice(0, -1);
                 await new Promise(resolve => setTimeout(resolve, 20));
             }
         }
-    
+
         async function glitchEffect() {
             const originalText = changingWord.textContent;
             const glitchChars = '!@#$%^&*<>[]{}';
@@ -449,13 +398,13 @@
             }
             changingWord.textContent = originalText;
         }
-    
+
         async function displayCategory(category) {
             await typePhrase(category.name);
             await new Promise(resolve => setTimeout(resolve, 500));
             await erasePhrase();
         }
-    
+
         async function cycleWords() {
             while (true) {
                 const category = categories[currentCategoryIndex];
@@ -466,12 +415,43 @@
                     if (Math.random() > 0.7) await glitchEffect();
                     await erasePhrase();
                 }
-    
+
                 currentCategoryIndex = (currentCategoryIndex + 1) % categories.length;
             }
         }
-    
+
+        // Start the word cycling effect
         cycleWords();
-    </script>    
+
+        // Smooth scrolling for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Intersection Observer for scroll-based animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.feature').forEach(feature => {
+            observer.observe(feature);
+        });
+    </script>
 </body>
 </html>
