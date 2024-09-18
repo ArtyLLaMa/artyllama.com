@@ -12,363 +12,383 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-okaidia.min.css"
     />
     <title>ArtyLLaMa - AI-Powered Artifacts for Everyone</title>
-       <style>
-        :root {
-  --primary-color: #4158d0;
-  --secondary-color: #c850c0;
-  --accent-color: #ffcc70;
-  --text-color: #ffffff;
-  --background-color: #0a0a0a;
-  --modal-background: rgba(0, 0, 0, 0.8);
-  --spinner-color: #ffffff;
-  --feature-background: #1a1a1a;
-}
+    <style>
+      :root {
+        --primary-color: #4158d0;
+        --secondary-color: #c850c0;
+        --accent-color: #ffcc70;
+        --text-color: #ffffff;
+        --background-color: #0a0a0a;
+        --modal-background: rgba(0, 0, 0, 0.8);
+        --spinner-color: #ffffff;
+        --feature-background: #1a1a1a;
+      }
 
-/* Base Styles */
-body, html {
-  margin: 0;
-  padding: 0;
-  font-family: "Inter", sans-serif;
-  line-height: 1.6;
-  color: var(--text-color);
-  background-color: var(--background-color);
-  overflow-x: hidden;
-  min-height: 100vh;
-}
+      /* Base Styles */
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        font-family: "Inter", sans-serif;
+        line-height: 1.6;
+        color: var(--text-color);
+        background-color: var(--background-color);
+        overflow-x: hidden;
+        min-height: 100vh;
+      }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
 
-/* Header Styles */
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 40px;
-  background: rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
-  z-index: 1000;
-}
+      /* Header Styles */
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 40px;
+        background: rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+      }
 
-.logo {
-  font-size: 24px;
-  font-weight: bold;
-}
+      .logo {
+        font-size: 24px;
+        font-weight: bold;
+      }
 
-nav a {
-  color: var(--text-color);
-  text-decoration: none;
-  margin-left: 20px;
-  transition: opacity 0.3s;
-}
+      nav a {
+        color: var(--text-color);
+        text-decoration: none;
+        margin-left: 20px;
+        transition: opacity 0.3s;
+      }
 
-nav a:hover {
-  opacity: 0.8;
-}
+      nav a:hover {
+        opacity: 0.8;
+      }
 
-/* Gradient Background */
-.gradient-background {
-  background: linear-gradient(
-    135deg,
-    rgba(255, 223, 67, 0.7) 0%,
-    rgba(255, 241, 166, 0.7) 25%,
-    rgba(168, 222, 224, 0.7) 50%,
-    rgba(107, 185, 240, 0.7) 75%,
-    rgba(95, 156, 217, 0.7) 100%
-  );
-  background-size: 400% 400%;
-  animation: gradientShift 15s ease infinite;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+      /* Gradient Background */
+      .gradient-background {
+        background: linear-gradient(
+          135deg,
+          rgba(255, 223, 67, 0.7) 0%,
+          rgba(255, 241, 166, 0.7) 25%,
+          rgba(168, 222, 224, 0.7) 50%,
+          rgba(107, 185, 240, 0.7) 75%,
+          rgba(95, 156, 217, 0.7) 100%
+        );
+        background-size: 400% 400%;
+        animation: gradientShift 15s ease infinite;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
 
-@keyframes gradientShift {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-}
+      @keyframes gradientShift {
+        0%,
+        100% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+      }
 
-/* Hero Content */
-.hero-content {
-  text-align: center;
-}
+      /* Hero Content */
+      .hero-content {
+        text-align: center;
+      }
 
-.dynamic-title {
-  font-size: 4rem;
-  font-weight: bold;
-  margin-bottom: 20px;
-  animation: glow 2s ease-in-out infinite alternate;
-}
+      .dynamic-title {
+        font-size: 4rem;
+        font-weight: bold;
+        margin-bottom: 20px;
+        animation: glow 2s ease-in-out infinite alternate;
+      }
 
-@keyframes glow {
-  from { text-shadow: 0 0 5px rgba(255, 255, 255, 0.5); }
-  to { text-shadow: 0 0 20px rgba(255, 255, 255, 0.8); }
-}
+      @keyframes glow {
+        from {
+          text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+        }
+        to {
+          text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+        }
+      }
 
-.changing-word {
-  display: inline-block;
-  min-width: 300px;
-  position: relative;
-  text-align: left;
-  color: white;
-}
+      .changing-word {
+        display: inline-block;
+        min-width: 300px;
+        position: relative;
+        text-align: left;
+        color: white;
+      }
 
-.changing-word::after {
-  content: "|";
-  position: absolute;
-  right: -8px;
-  top: 0;
-  animation: blink 1s infinite;
-}
+      .changing-word::after {
+        content: "|";
+        position: absolute;
+        right: -8px;
+        top: 0;
+        animation: blink 1s infinite;
+      }
 
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
+      @keyframes blink {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+      }
 
-/* CTA Button */
-.cta-button {
-  display: inline-block;
-  background-color: var(--accent-color);
-  color: var(--background-color);
-  padding: 12px 24px;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: all 0.3s;
-}
+      /* CTA Button */
+      .cta-button {
+        display: inline-block;
+        background-color: var(--accent-color);
+        color: var(--background-color);
+        padding: 12px 24px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: all 0.3s;
+      }
 
-.cta-button:hover {
-  background-color: var(--secondary-color);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
+      .cta-button:hover {
+        background-color: var(--secondary-color);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
 
-/* Sections */
-.section {
-  padding: 80px 0;
-}
+      /* Sections */
+      .section {
+        padding: 80px 0;
+      }
 
-.app-showcase {
-  background: #121212;
-}
+      .app-showcase {
+        background: #121212;
+      }
 
-.app-screenshot {
-  max-width: 100%;
-  border-radius: 8px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
+      .app-screenshot {
+        max-width: 100%;
+        border-radius: 8px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      }
 
-/* Features */
-.feature-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-}
+      /* Features */
+      .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+      }
 
-.feature {
-  background-color: var(--feature-background);
-  border-radius: 8px;
-  padding: 30px;
-  text-align: center;
-  transition: transform 0.3s, box-shadow 0.3s;
-  cursor: pointer;
-}
+      .feature {
+        background-color: var(--feature-background);
+        border-radius: 8px;
+        padding: 30px;
+        text-align: center;
+        transition: transform 0.3s, box-shadow 0.3s;
+        cursor: pointer;
+      }
 
-.feature:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
+      .feature:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
 
-.feature-icon {
-  font-size: 48px;
-  margin-bottom: 20px;
-}
+      .feature-icon {
+        font-size: 48px;
+        margin-bottom: 20px;
+      }
 
-/* Footer */
-footer {
-  background-color: var(--background-color);
-  color: #a0aec0;
-  padding: 60px 0;
-}
+      /* Footer */
+      footer {
+        background-color: var(--background-color);
+        color: #a0aec0;
+        padding: 60px 0;
+      }
 
-.footer-content {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 30px;
-}
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 30px;
+      }
 
-.footer-section h4 {
-  color: var(--text-color);
-  font-size: 18px;
-  margin-bottom: 15px;
-}
+      .footer-section h4 {
+        color: var(--text-color);
+        font-size: 18px;
+        margin-bottom: 15px;
+      }
 
-.footer-section ul {
-  list-style-type: none;
-  padding: 0;
-}
+      .footer-section ul {
+        list-style-type: none;
+        padding: 0;
+      }
 
-.footer-section ul li {
-  margin-bottom: 10px;
-}
+      .footer-section ul li {
+        margin-bottom: 10px;
+      }
 
-.footer-section ul li a {
-  color: #a0aec0;
-  text-decoration: none;
-  transition: color 0.3s;
-}
+      .footer-section ul li a {
+        color: #a0aec0;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
 
-.footer-section ul li a:hover {
-  color: var(--text-color);
-}
+      .footer-section ul li a:hover {
+        color: var(--text-color);
+      }
 
-.footer-bottom {
-  text-align: center;
-  margin-top: 40px;
-  padding-top: 20px;
-  border-top: 1px solid rgba(160, 174, 192, 0.2);
-}
+      .footer-bottom {
+        text-align: center;
+        margin-top: 40px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(160, 174, 192, 0.2);
+      }
 
-/* Tabs and Code Example */
-.tabs {
-  display: flex;
-  margin-bottom: 20px;
-}
+      /* Tabs and Code Example */
+      .tabs {
+        display: flex;
+        margin-bottom: 20px;
+      }
 
-.tab-button {
-  background-color: #f1f1f1;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 10px 20px;
-  transition: 0.3s;
-  font-size: 17px;
-}
+      .tab-button {
+        background-color: #f1f1f1;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 10px 20px;
+        transition: 0.3s;
+        font-size: 17px;
+      }
 
-.tab-button:hover {
-  background-color: #ddd;
-}
+      .tab-button:hover {
+        background-color: #ddd;
+      }
 
-.tab-button.active {
-  background-color: #ccc;
-}
+      .tab-button.active {
+        background-color: #ccc;
+      }
 
-.tab-content {
-  display: none;
-  padding: 20px;
-  border: 1px solid #ccc;
-}
+      .tab-content {
+        display: none;
+        padding: 20px;
+        border: 1px solid #ccc;
+      }
 
-.tab-content.active {
-  display: block;
-}
+      .tab-content.active {
+        display: block;
+      }
 
-.code-example {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  margin-top: 20px;
-}
+      .code-example {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-top: 20px;
+      }
 
-.code-container, .result-container {
-  flex: 1;
-  min-width: 300px;
-}
+      .code-container,
+      .result-container {
+        flex: 1;
+        min-width: 300px;
+      }
 
-.result-container {
-  min-height: 400px;
-  background-color: var(--feature-background);
-  border-radius: 8px;
-  padding: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+      .result-container {
+        min-height: 400px;
+        background-color: var(--feature-background);
+        border-radius: 8px;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
 
-#transformerChart {
-  width: 100%;
-  height: 400px;
-}
+      #transformerChart {
+        width: 100%;
+        height: 400px;
+      }
 
-pre[class*="language-"], pre {
-  margin: 0;
-  border-radius: 8px;
-  max-height: 400px;
-  overflow-y: auto;
-}
+      pre[class*="language-"],
+      pre {
+        margin: 0;
+        border-radius: 8px;
+        max-height: 400px;
+        overflow-y: auto;
+      }
 
-/* Modal Styles */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 2000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: var(--modal-background);
-  padding-top: 60px;
-}
+      /* Modal Styles */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 2000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: var(--modal-background);
+        padding-top: 60px;
+      }
 
-.modal-content {
-  background-color: var(--feature-background);
-  margin: 5% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-  max-width: 600px;
-  border-radius: 10px;
-  color: var(--text-color);
-}
+      .modal-content {
+        background-color: var(--feature-background);
+        margin: 5% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        max-width: 600px;
+        border-radius: 10px;
+        color: var(--text-color);
+      }
 
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-  cursor: pointer;
-}
+      .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+      }
 
-.close:hover,
-.close:focus {
-  color: #fff;
-  text-decoration: none;
-}
+      .close:hover,
+      .close:focus {
+        color: #fff;
+        text-decoration: none;
+      }
 
-/* Spinner Styles */
-.spinner {
-  border: 8px solid #f3f3f3;
-  border-top: 8px solid var(--spinner-color);
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  animation: spin 2s linear infinite;
-  margin: 0 auto;
-}
+      /* Spinner Styles */
+      .spinner {
+        border: 8px solid #f3f3f3;
+        border-top: 8px solid var(--spinner-color);
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        animation: spin 2s linear infinite;
+        margin: 0 auto;
+      }
 
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .dynamic-title {
-    font-size: 3rem;
-  }
-}
-
-       </style>
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .dynamic-title {
+          font-size: 3rem;
+        }
+      }
+    </style>
   </head>
   <body>
     <header>
@@ -394,7 +414,8 @@ pre[class*="language-"], pre {
             <span id="changing-word" class="changing-word"></span>
           </h1>
           <p>
-            Bridge the gap between Large Language Models and rich, interactive user interfaces
+            Bridge the gap between Large Language Models and rich, interactive
+            user interfaces
           </p>
           <a href="https://github.com/kroonen/artyllama" class="cta-button"
             >Get Started</a
@@ -419,41 +440,57 @@ pre[class*="language-"], pre {
       <div class="container">
         <h2>Key Features</h2>
         <div class="feature-grid">
-            <div class="feature">
-                <div class="feature-icon">🏷️</div>
-                <h3>&lt;antArtifact&gt; Tags</h3>
-                <p>Unique tag system for integrating rich content into LLM outputs</p>
-            </div>
-            
-            <div class="feature">
-                <div class="feature-icon">🎨</div>
-                <h3>Multi-Modal Rendering</h3>
-                <p>Generate and display charts, code, HTML, and more from text input</p>
-            </div>
-            
-            <div class="feature">
-                <div class="feature-icon">🔌</div>
-                <h3>LLM Integration</h3>
-                <p>Seamless integration with various LLMs, including open-source models</p>
-            </div>
-            
-            <div class="feature">
-                <div class="feature-icon">🛡️</div>
-                <h3>Secure Content Handling</h3>
-                <p>Built-in sanitization and error management for safe content display</p>
-            </div>
-            
-            <div class="feature">
-                <div class="feature-icon">🧩</div>
-                <h3>Extensible Architecture</h3>
-                <p>Easily add new artifact types and renderers to expand functionality</p>
-            </div>
-            
-            <div class="feature">
-                <div class="feature-icon">💻</div>
-                <h3>React-Based UI</h3>
-                <p>Modern, responsive interface built with React for smooth user experience</p>
-            </div>
+          <div class="feature">
+            <div class="feature-icon">🏷️</div>
+            <h3>&lt;antArtifact&gt; Tags</h3>
+            <p>
+              Unique tag system for integrating rich content into LLM outputs
+            </p>
+          </div>
+
+          <div class="feature">
+            <div class="feature-icon">🎨</div>
+            <h3>Multi-Modal Rendering</h3>
+            <p>
+              Generate and display charts, code, HTML, and more from text input
+            </p>
+          </div>
+
+          <div class="feature">
+            <div class="feature-icon">🔌</div>
+            <h3>LLM Integration</h3>
+            <p>
+              Seamless integration with various LLMs, including open-source
+              models
+            </p>
+          </div>
+
+          <div class="feature">
+            <div class="feature-icon">🛡️</div>
+            <h3>Secure Content Handling</h3>
+            <p>
+              Built-in sanitization and error management for safe content
+              display
+            </p>
+          </div>
+
+          <div class="feature">
+            <div class="feature-icon">🧩</div>
+            <h3>Extensible Architecture</h3>
+            <p>
+              Easily add new artifact types and renderers to expand
+              functionality
+            </p>
+          </div>
+
+          <div class="feature">
+            <div class="feature-icon">💻</div>
+            <h3>React-Based UI</h3>
+            <p>
+              Modern, responsive interface built with React for smooth user
+              experience
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -521,129 +558,136 @@ pre[class*="language-"], pre {
       <div class="container">
         <h2>Additional Features</h2>
         <div class="feature-grid">
+          <div class="feature">
+            <div class="feature-icon">🤖</div>
+            <h3>Multiple AI Providers</h3>
+            <p>
+              Support for Ollama, OpenAI, and Anthropic, offering versatile AI
+              experiences
+            </p>
+          </div>
 
-            <div class="feature">
-                <div class="feature-icon">🤖</div>
-                <h3>Multiple AI Providers</h3>
-                <p>Support for Ollama, OpenAI, and Anthropic, offering versatile AI experiences</p>
-            </div>
-            
-            <div class="feature">
-                <div class="feature-icon">💬</div>
-                <h3>Real-time Chat Interface</h3>
-                <p>Dynamic UI with instant message updates and interactive conversations</p>
-            </div>
-            
-            <div class="feature">
-                <div class="feature-icon">🖥️</div>
-                <h3>Advanced Code Handling</h3>
-                <p>Syntax highlighting and interactive code execution capabilities</p>
-            </div>
-            
-            <div class="feature">
-                <div class="feature-icon">📊</div>
-                <h3>Data Visualization</h3>
-                <p>Generate interactive charts and graphs from textual descriptions</p>
-            </div>
-            
-            <div class="feature">
-                <div class="feature-icon">🔄</div>
-                <h3>Server-Side Streaming</h3>
-                <p>Efficient streaming of AI responses for real-time interaction</p>
-            </div>
-            
-            <div class="feature">
-                <div class="feature-icon">⚙️</div>
-                <h3>Customizable System Prompts</h3>
-                <p>Tailor the AI's behavior with customizable system messages</p>
-            </div>
-            
+          <div class="feature">
+            <div class="feature-icon">💬</div>
+            <h3>Real-time Chat Interface</h3>
+            <p>
+              Dynamic UI with instant message updates and interactive
+              conversations
+            </p>
+          </div>
 
+          <div class="feature">
+            <div class="feature-icon">🖥️</div>
+            <h3>Advanced Code Handling</h3>
+            <p>
+              Syntax highlighting and interactive code execution capabilities
+            </p>
+          </div>
+
+          <div class="feature">
+            <div class="feature-icon">📊</div>
+            <h3>Data Visualization</h3>
+            <p>
+              Generate interactive charts and graphs from textual descriptions
+            </p>
+          </div>
+
+          <div class="feature">
+            <div class="feature-icon">🔄</div>
+            <h3>Server-Side Streaming</h3>
+            <p>Efficient streaming of AI responses for real-time interaction</p>
+          </div>
+
+          <div class="feature">
+            <div class="feature-icon">⚙️</div>
+            <h3>Customizable System Prompts</h3>
+            <p>Tailor the AI's behavior with customizable system messages</p>
+          </div>
         </div>
       </div>
     </section>
 
     <footer>
-        <div class="container">
-          <div class="footer-content">
-            <div class="footer-section">
-              <h4>About ArtyLLaMa</h4>
-              <p>
-                An open-source project bringing AI-powered artifacts to everyone
-                through a React-based chat interface.
-              </p>
-            </div>
-            <div class="footer-section">
-              <h4>Quick Links</h4>
-              <ul>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#showcase">Showcase</a></li>
-                <li>
-                  <a
-                    href="https://github.com/kroonen/artyllama"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    >GitHub</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="https://github.com/kroonen/artyllama/blob/main/CONTRIBUTING.md"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    >Contribute</a
-                  >
-                </li>
-              </ul>
-            </div>
-            <div class="footer-section">
-              <h4>Community</h4>
-              <ul>
-                <li>
-                  <a
-                    href="https://github.com/kroonen/artyllama/graphs/contributors"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    >Contributors</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="https://github.com/kroonen/artyllama/stargazers"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    >Star on GitHub</a
-                  >
-                </li>
-              </ul>
-            </div>
-            <div class="footer-section">
-              <h4>Support</h4>
-              <ul>
-                <li>
-                  <a
-                    href="https://github.com/kroonen/artyllama/issues"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    >Report Issues</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="https://github.com/kroonen/artyllama/blob/main/TROUBLESHOOTING.md"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    >Troubleshooting Guide</a
-                  >
-                </li>
-              </ul>
-            </div>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h4>About ArtyLLaMa</h4>
+            <p>
+              An open-source project bringing AI-powered artifacts to everyone
+              through a React-based chat interface.
+            </p>
           </div>
-          <div class="footer-bottom">
-            <p>&copy; 2024 ArtyLLaMa Research Project</p>
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="#features">Features</a></li>
+              <li><a href="#showcase">Showcase</a></li>
+              <li>
+                <a
+                  href="https://github.com/kroonen/artyllama"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >GitHub</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://github.com/kroonen/artyllama/blob/main/CONTRIBUTING.md"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Contribute</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Community</h4>
+            <ul>
+              <li>
+                <a
+                  href="https://github.com/kroonen/artyllama/graphs/contributors"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Contributors</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://github.com/kroonen/artyllama/stargazers"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Star on GitHub</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Support</h4>
+            <ul>
+              <li>
+                <a
+                  href="https://github.com/kroonen/artyllama/issues"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Report Issues</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://github.com/kroonen/artyllama/blob/main/TROUBLESHOOTING.md"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Troubleshooting Guide</a
+                >
+              </li>
+            </ul>
           </div>
         </div>
-      </footer>
+        <div class="footer-bottom">
+          <p>&copy; 2024 ArtyLLaMa Research Project</p>
+        </div>
+      </div>
+    </footer>
 
     <!-- Modal for Node Details -->
     <div
@@ -698,39 +742,57 @@ pre[class*="language-"], pre {
 
       const categories = [
         {
-          name: "AI Empowerment",
+          name: "Data Visualization",
           items: [
-            "interactive charts",
-            "3D visualizations",
-            "code explanations",
-            "dynamic UIs",
+            "Interactive Charts",
+            "3D Graphs",
+            "Dynamic Data Tables",
+            "Real-time Dashboards",
           ],
         },
         {
-          name: "LLM Enhancements",
+          name: "Simulations & Modeling",
           items: [
-            "rich outputs",
-            "visual artifacts",
-            "interactive elements",
-            "data representations",
+            "3D Simulations",
+            "Interactive Models",
+            "Physics Engines",
+            "Environmental Simulations",
+          ],
+        },
+        {
+          name: "Gaming Integrations",
+          items: [
+            "Game Mechanics",
+            "Interactive Storytelling",
+            "AI-driven NPCs",
+            "Real-time Strategy Tools",
+          ],
+        },
+        {
+          name: "Code Assistance",
+          items: [
+            "Code Explanations",
+            "Live Coding Interfaces",
+            "Syntax Highlighting",
+            "Debugging Tools",
           ],
         },
         {
           name: "Developer Tools",
           items: [
-            "&lt;antArtifact&gt; tags",
-            "extensible renderers",
-            "LLM integrations",
-            "open-source tools",
+            "<antArtifact> Tags",
+            "Extensible Renderers",
+            "LLM Integrations",
+            "Open-Source Utilities",
           ],
         },
         {
-          name: "User Experiences",
+          name: "User Experience",
           items: [
-            "immersive interfaces",
-            "data visualizations",
-            "interactive simulations",
-            "enhanced AI chats",
+            "Immersive Interfaces",
+            "Enhanced AI Chats",
+            "Responsive UIs",
+            "Customizable Themes",
           ],
         },
       ];
@@ -740,64 +802,64 @@ pre[class*="language-"], pre {
       let currentItemIndex = 0;
 
       async function typePhrase(phrase) {
-  changingWord.textContent = "";
-  for (let char of phrase) {
-    changingWord.textContent += char;
-    // Remove the color change
-    // changingWord.style.color = `hsl(${Math.random() * 360}, 80%, 60%)`;
-    await new Promise((resolve) =>
-      setTimeout(resolve, 50 + Math.random() * 70)
-    ); // Increased delay for slower typing
-  }
-  await new Promise((resolve) => setTimeout(resolve, 1500)); // Longer pause at the end
-}
+        changingWord.textContent = "";
+        for (let char of phrase) {
+          changingWord.textContent += char;
+          // Remove the color change
+          // changingWord.style.color = `hsl(${Math.random() * 360}, 80%, 60%)`;
+          await new Promise((resolve) =>
+            setTimeout(resolve, 50 + Math.random() * 70)
+          ); // Increased delay for slower typing
+        }
+        await new Promise((resolve) => setTimeout(resolve, 1500)); // Longer pause at the end
+      }
 
-async function erasePhrase() {
-  while (changingWord.textContent.length > 0) {
-    changingWord.textContent = changingWord.textContent.slice(0, -1);
-    await new Promise((resolve) => setTimeout(resolve, 30)); // Slightly slower erasing
-  }
-}
+      async function erasePhrase() {
+        while (changingWord.textContent.length > 0) {
+          changingWord.textContent = changingWord.textContent.slice(0, -1);
+          await new Promise((resolve) => setTimeout(resolve, 30)); // Slightly slower erasing
+        }
+      }
 
-async function glitchEffect() {
-  const originalText = changingWord.textContent;
-  const glitchChars = "!@#$%^&*<>[]{}";
-  for (let i = 0; i < 5; i++) {
-    changingWord.textContent = originalText
-      .split("")
-      .map((char) =>
-        Math.random() > 0.7
-          ? glitchChars[Math.floor(Math.random() * glitchChars.length)]
-          : char
-      )
-      .join("");
-    await new Promise((resolve) => setTimeout(resolve, 100)); // Slower glitch effect
-  }
-  changingWord.textContent = originalText;
-}
+      async function glitchEffect() {
+        const originalText = changingWord.textContent;
+        const glitchChars = "!@#$%^&*<>[]{}";
+        for (let i = 0; i < 5; i++) {
+          changingWord.textContent = originalText
+            .split("")
+            .map((char) =>
+              Math.random() > 0.7
+                ? glitchChars[Math.floor(Math.random() * glitchChars.length)]
+                : char
+            )
+            .join("");
+          await new Promise((resolve) => setTimeout(resolve, 100)); // Slower glitch effect
+        }
+        changingWord.textContent = originalText;
+      }
 
-async function displayCategory(category) {
-  await typePhrase(category.name);
-  await new Promise((resolve) => setTimeout(resolve, 1000)); // Longer pause between category and items
-  await erasePhrase();
-}
+      async function displayCategory(category) {
+        await typePhrase(category.name);
+        await new Promise((resolve) => setTimeout(resolve, 1000)); // Longer pause between category and items
+        await erasePhrase();
+      }
 
-async function cycleWords() {
-  while (true) {
-    const category = categories[currentCategoryIndex];
-    await displayCategory(category);
-    
-    for (let item of category.items) {
-      await typePhrase(item);
-      if (Math.random() > 0.7) await glitchEffect();
-      await new Promise((resolve) => setTimeout(resolve, 500)); // Pause before erasing
-      await erasePhrase();
-    }
+      async function cycleWords() {
+        while (true) {
+          const category = categories[currentCategoryIndex];
+          await displayCategory(category);
 
-    currentCategoryIndex = (currentCategoryIndex + 1) % categories.length;
-    await new Promise((resolve) => setTimeout(resolve, 1000)); // Pause before next category
-  }
-}
+          for (let item of category.items) {
+            await typePhrase(item);
+            if (Math.random() > 0.7) await glitchEffect();
+            await new Promise((resolve) => setTimeout(resolve, 500)); // Pause before erasing
+            await erasePhrase();
+          }
+
+          currentCategoryIndex = (currentCategoryIndex + 1) % categories.length;
+          await new Promise((resolve) => setTimeout(resolve, 1000)); // Pause before next category
+        }
+      }
 
       /// Start the word cycling effect
       cycleWords();
