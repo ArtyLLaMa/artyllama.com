@@ -388,6 +388,20 @@
           font-size: 3rem;
         }
       }
+
+      /* Ensures the container aligns the content properly */
+      #showcase .gif-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding: 20px 0;
+      }
+
+      #showcase .gif-container img {
+        max-width: 100%;
+        height: auto;
+      }
     </style>
   </head>
   <body>
@@ -428,13 +442,16 @@
       <div class="container">
         <h2>Transform AI Outputs into Rich Experiences</h2>
         <p>See how ArtyLLaMa enhances AI-generated content:</p>
-        <img
-          src="artyllamaDemo.gif"
-          alt="ArtyLLaMa Interface"
-          class="app-screenshot"
-        />
+        <div class="gif-container">
+          <img
+            src="artyllamaDemo.gif"
+            alt="ArtyLLaMa Interface"
+            class="app-screenshot"
+            loading="lazy"
+          />
+        </div>
       </div>
-    </section>
+    </section>    
 
     <section id="features" class="section features">
       <div class="container">
