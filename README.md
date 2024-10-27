@@ -53,4 +53,4 @@ For more information about ArtyLLaMa, please visit our [main repository](https:/
 
 ---
 
-© 2024 ArtyLLaMa Project
+<sup> © 2024 ArtyLLaMa Project </sup>
